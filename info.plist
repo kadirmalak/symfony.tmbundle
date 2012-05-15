@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symfony</string>
+	<key>ordering</key>
+	<array>
+		<string>8F26AB7E-A43B-4051-8111-F85712C5DC1C</string>
+		<string>90C3EE37-D7D9-49D3-BB3F-835DA56A4E8D</string>
+		<string>58491240-C795-42FD-BD91-A51138ED03DE</string>
+		<string>FFA5C4D8-240F-49BC-A68F-329AEE6C0580</string>
+		<string>40A29FE9-648C-4350-B547-26A068779C41</string>
+		<string>1EFBED70-3A05-415D-A194-8A2B0A029095</string>
+		<string>C1BE9180-A635-41E1-BD0C-D059F060C27A</string>
+		<string>2B94BC11-CDDC-42C6-9474-EE6A10D14035</string>
+		<string>E3B6D98E-6309-4AEF-BBBB-70705C7471A9</string>
+		<string>06D56190-48B7-4788-96D8-6C4DA60EC035</string>
+		<string>1E46E371-A9ED-479F-8A1F-42D1EBFCAB9D</string>
+		<string>20E5194A-7AEE-4380-AD24-409DC53F7495</string>
+	</array>
+	<key>uuid</key>
+	<string>A75064E8-E148-45D5-9FD1-7C4C668F1081</string>
+</dict>
+</plist>

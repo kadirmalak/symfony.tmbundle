@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>public function execute${1:Function}(${2:sfWebRequest \$${3:request}}) {
+    ${0:# code...}
+}</string>
+	<key>name</key>
+	<string>Action Method</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>tabTrigger</key>
+	<string>action</string>
+	<key>uuid</key>
+	<string>20E5194A-7AEE-4380-AD24-409DC53F7495</string>
+</dict>
+</plist>

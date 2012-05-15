@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>class ${1:}Filter extends sfFilter {
+	
+	public function execute (\$filterChain) {
+		
+		${0:#code...}        
+		\$filterChain-&gt;execute();
+	}
+}
+</string>
+	<key>name</key>
+	<string>Filter Class</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>tabTrigger</key>
+	<string>filter</string>
+	<key>uuid</key>
+	<string>90C3EE37-D7D9-49D3-BB3F-835DA56A4E8D</string>
+</dict>
+</plist>

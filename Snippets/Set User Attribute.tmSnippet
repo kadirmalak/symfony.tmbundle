@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>\$${1:user}-&gt;setAttribute('$2', ${3});</string>
+	<key>name</key>
+	<string>Set User Attribute</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>tabTrigger</key>
+	<string>attr</string>
+	<key>uuid</key>
+	<string>2B94BC11-CDDC-42C6-9474-EE6A10D14035</string>
+</dict>
+</plist>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/php
+&lt;?php
+$filepath = getenv('TM_FILEPATH');
+if (preg_match('/Success\.php$/', $filepath)) {
+    
+    $parts = explode('/', $filepath);
+    $filename = array_pop($parts);
+    $actions_filename = realpath(implode('/', $parts)."/../actions/actions.class.php");
+    $action_method_name = "execute".ucwords($filename);
+    $action_method_name = str_replace('Success.php', '', $action_method_name);
+    
+    $grep_command = '/usr/bin/grep -n "public function '.$action_method_name.'[ (]\+" '.$actions_filename;
+    $output = array();
+    $return = null;
+    exec($grep_command, $output, $return);
+    
+    if ($return !== 0) {
+        die("grep error");
+    }
+    
+    if (!preg_match('/^(\d+):/', $output[0], $matches)) {
+        die('could not find action method');
+    }
+    
+    $line_no = $matches[1];
+    $textmate_url = "txmt://open?url=file://$actions_filename&amp;line=$line_no";
+    
+    $open_command = "/usr/bin/open ".escapeshellarg($textmate_url);
+    $output = array();
+    $return = null;
+    exec($open_command, $output, $return);
+    
+    if ($return !== 0) {
+        die("open error");
+    }
+    
+} else if (preg_match('/actions\.class\.php$/', $filepath)) {
+    
+    $current_line_no = (int)getenv('TM_LINE_NUMBER');
+    
+    $parts = explode('/', $filepath);
+    $filename = array_pop($parts);
+    
+    $grep_command = '/usr/bin/grep -n "public function execute" '.$filepath;
+    $output = array();
+    $return = null;
+    exec($grep_command, $output, $return);
+    
+    if ($return !== 0) {
+        die("grep error");
+    }
+    
+    $action_method_line_no = null;
+    $action_method_line = null;
+    
+    foreach ($output as $line) {
+        $matches = array();
+        if (preg_match('/^(\d+):/', $line, $matches)) {
+            $line_no = (int)$matches[1];
+            if ($current_line_no &gt;= $line_no) {
+                $action_method_line_no = $line_no;
+                $action_method_line = $line;
+            } else {
+                break;
+            }
+        }
+    }
+    
+    if ($action_method_line_no === null) {
+        die("could not find action method line no");
+    }
+    
+    $matches = array();
+    if (!preg_match('/public function execute([^\( ]+)/', $action_method_line, $matches)) {
+        die('could not get action name from line');
+    }
+    
+    $template_path = realpath(implode('/', $parts)."/../templates/".lcfirst($matches[1])."Success.php");
+    
+    if (!file_exists($template_path)) {
+        die("does not exist");
+    }
+    
+    $textmate_url = "txmt://open?url=file://$template_path&amp;line=0";
+    
+    $open_command = "/usr/bin/open ".escapeshellarg($textmate_url);
+    $output = array();
+    $return = null;
+    exec($open_command, $output, $return);
+    
+    if ($return !== 0) {
+        die("open error");
+    }
+}
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>~@</string>
+	<key>name</key>
+	<string>Go to View / Action</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>uuid</key>
+	<string>8F26AB7E-A43B-4051-8111-F85712C5DC1C</string>
+</dict>
+</plist>

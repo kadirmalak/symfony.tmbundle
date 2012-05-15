@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>\$${1:conn} = Doctrine_Manager::connection();
+\$$1-&gt;beginTransaction();
+try {      
+    ${0:# code...}
+    \$$1-&gt;commit();            
+} catch (Exception $e){
+    \$$1-&gt;rollback();
+}
+</string>
+	<key>name</key>
+	<string>Transaction</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>tabTrigger</key>
+	<string>trx</string>
+	<key>uuid</key>
+	<string>06D56190-48B7-4788-96D8-6C4DA60EC035</string>
+</dict>
+</plist>
